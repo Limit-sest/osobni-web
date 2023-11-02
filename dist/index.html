@@ -5,6 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Limit</title>
 		<script src="https://unpkg.com/feather-icons"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css" />
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
@@ -16,7 +19,7 @@
 		<link rel="stylesheet" href="./output.css" />
 	</head>
 
-	<body>
+	<body class="overflow-x-hidden">
 		<!--
         # Poděkování
         ---
@@ -40,81 +43,91 @@
 		</div>
 		<div id="loader">
 			<h1 id="loading-text" class="mx-8 py-4 text-4xl font-black text-white sm:mx-16 sm:text-6xl 2xl:text-7xl">Načítá se...</h1>
-			<i data-feather="smile" class="stroke-slate-400 inline w-7 h-7 sm:w-10 sm:h-10 animate-spin mt-5 sm:mt-10 mb-10 sm:mb-14"></i>
+			<div class="loader-animation inline w-7 h-7 sm:w-10 sm:h-10 mt-5 sm:mt-10 mb-10 sm:mb-14"></div>
+
 		</div>
 		<div class="flex justify-center items-center w-screen">
-			<div id="alert" class="fixed z-50 bottom-8 p-5 | border-2 rounded-2xl border-indigo-400 bg-gray-800 shadow-2xl | text-white text-center | transition-all ease-in-out delay-50 duration-500 | transform translate-y-full opacity-0">
+			<div id="alert" class="pointer-events-none fixed z-30 bottom-8 p-5 | border-2 rounded-2xl border-indigo-400 backdrop-blur-sm bg-gray-950/70 shadow-2xl | flex align-baseline flex-nowrap gap-2 | text-white text-center | transition-all ease-in-out delay-50 duration-500 | transform translate-y-full opacity-0">
+				<i data-feather="info" class="h-full aspect-square stroke-indigo-400"></i>
 				E-mail byl zkopírován do schránky. (kontakt@limit6.eu)
 			</div>
+			<div id="alert-dc" class="pointer-events-none fixed z-30 bottom-8 p-5 | border-2 rounded-2xl border-indigo-400 backdrop-blur-sm bg-gray-950/70 shadow-2xl | flex align-baseline flex-nowrap gap-2 | text-white text-center | transition-all ease-in-out delay-50 duration-500 | transform translate-y-full opacity-0">
+				<i data-feather="info" class="h-full aspect-square stroke-indigo-400"></i>
+				Username bylo zkopírováno do schránky. (@limit6)
+			</div>
 		</div>
-		<a href="#top" id="back-to-top" class="group fixed bottom-6 right-6 z-50 | h-12 w-12 p-2 | flex justify-center items-center | rounded-full bg-gray-900 shadow-2xl | transition-all ease-in-out delay-50 duration-500 |  hover:bg-indigo-500 hover:h-24 hover:w-12 hover:origin-bottom">
-			<i data-feather="arrow-up" class="h-full w-auto | stroke-indigo-500 stroke-2 | transition-all ease-in-out delay-0 duration-300 | group-hover:stroke-white group-hover:stroke-3 group-hover:scale-125 group-hover:-translate-y-6"></i>
-		</a>
-
-		<!--<div class="flex flex-col justify-center h-screen absolute">
-			<nav class="flex flex-nowrap items-center justify-evenly | fixed | bg-black/50 | lg:flex-col lg:w-16 lg:right-4">
-				<div class="w-8 h-8 m-2 bg-red-500"></div>
-				<div class="w-8 h-8 m-2 bg-red-500"></div>
-				<div class="w-8 h-8 m-2 bg-red-500"></div>
+		<div id="nav" class="pointer-events-none fixed bottom-0 w-screen flex justify-center |  | scale-100 | z-20">
+			<nav class="pointer-events-auto flex flex-nowrap items-center justify-evenly | p-1 | backdrop-blur bg-gray-950/70 rounded-t-3xl | transition-all ease-in-out duration-500 | hover:rounded-3xl hover:-translate-y-1 translate-y-2">
+				<a href="#o-mne" class="relative bottom-0 group"><div class="nav-item | w-10 h-10 m-2 p-1 rounded-full | group-hover:bg-indigo-500 group-hover:-translate-y-2 | transition-all ease-in-out duration-500 delay-75"><img src="./assets/icons/waving_hand_3d_default.png" alt="" class="w-full h-full | group-hover:-translate-y-2 group-hover:scale-150 | transition-all duration-300 ease-in-out"></div></a>
+				<a href="#prezdivka" class="relative bottom-0 group"><div class="nav-item | w-10 h-10 m-2 p-1 rounded-full | group-hover:bg-indigo-500 group-hover:-translate-y-2 | transition-all ease-in-out duration-500 delay-75"><img src="./assets/icons/hourglass_not_done_3d.png" alt="" class="w-full h-full | group-hover:-translate-y-2 group-hover:scale-150 | transition-all duration-300 ease-in-out"></div></a>
+				<a href="#top" class="relative bottom-0 group">
+					<div id="back-to-top" class="h-0 w-0 m-0 p-0 | rounded-full | transition-all ease-in-out delay-75 duration-500 |  group-hover:bg-indigo-500 group-hover:-translate-y-2">
+						<i data-feather="arrow-up" class="h-full w-auto | stroke-indigo-500 stroke-2 | transition-all ease-in-out duration-300 | group-hover:stroke-white group-hover:-translate-y-3 group-hover:scale-150"></i>
+					</div>
+				</a>
+				<a href="#co-umim" class="relative bottom-0 group"><div class="nav-item | w-10 h-10 m-2 p-1 rounded-full | group-hover:bg-indigo-500 group-hover:-translate-y-2 | transition-all ease-in-out duration-500 delay-75"><img src="./assets/icons/laptop_3d.png" alt="" class="w-full h-full | group-hover:-translate-y-2 group-hover:scale-150 | transition-all duration-300 ease-in-out"></div></a>
+				<a href="#linktree" class="relative bottom-0 group"><div class="nav-item | w-10 h-10 m-2 p-1 rounded-full | group-hover:bg-indigo-500 group-hover:-translate-y-2 | transition-all ease-in-out duration-500 delay-75"><img src="./assets/icons/link_3d.png" alt="" class="w-full h-full | group-hover:-translate-y-2 group-hover:scale-150 | transition-all duration-300 ease-in-out"></div></a>
 			</nav>
-		</div>-->
+		</div>
 
-		
-		<div id="top" class="intro h-screen bg-gray-900">
-			<div class="absolute flex h-screen flex-col items-start justify-center px-2 text-center sm:px-14 sm:text-start lg:w-3/5">
-				<h1 class="my-5 text-6xl font-black text-white sm:text-7xl 2xl:text-8xl"
+
+		<div id="top" class="intro h-screen w-screen bg-gray-900 | flex flex-col justify-center items-center">
+			<div class="mb-32 text-center mx-4">
+				<h1 class="my-4 pb-4 text-6xl font-black text-transparent md:text-7xl xl:text-8xl | bg-gradient-to-t from-slate-300 to-white bg-clip-text"
 					>Ahoj, říkej mi
 					<span class="mt-2 inline-grid">
 						<span class="pointer-events-none col-start-1 row-start-1 bg-gradient-to-r from-orange-200 to-rose-400 bg-clip-text text-transparent opacity-70 blur-2xl">Limit</span>
 						<span data-cursor="-pointer" class="relative col-start-1 row-start-1 bg-gradient-to-r from-orange-200 to-rose-400 bg-clip-text text-transparent">Limit</span> </span
 					>.
 				</h1>
-				<p class="my-3 text-2xl text-slate-300 2xl:text-3xl">Baví mě vše, co se týče počítačů. Ať už je to web development, ui/ux design, python scripty, hry, nebo třeba jejich komponenty. </p>
+				<p class="max-w-3xl text-left my-3 text-xl md:text-2xl text-slate-300 xl:text-3xl">Baví mě vše, co se týká počítačů. Ať už to jsou weby, ui/ux design, python scripty, hry, nebo třeba jejich komponenty. Vítej!</p>
 			</div>
-			<div class="absolute bottom-0 mb-3 flex w-screen justify-center">
-				<i data-feather="arrow-down" class="h-8 w-8 animate-bounce stroke-white"></i>
-			</div>
+
 		</div>
-		<div class="w-screen bg-gray-800">
-			<div class="px-4 py-4 sm:px-20">
-				<h2 class="my-4 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">O mně<img src="./assets/icons/waving_hand_3d_default.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
-				<p class="px-4 text-base text-slate-400 sm:px-7 2xl:px-10 md:text-xl xl:text-2xl">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem veritatis blanditiis quasi excepturi nobis quam accusantium dignissimos, quaerat minima voluptates esse molestias laudantium inventore temporibus reprehenderit magni. Facilis, id dolores? Sint suscipit id neque, accusantium quibusdam nihil nobis libero laboriosam reprehenderit alias nam soluta ipsam provident! Sunt quas, inventore dolor labore, illum atque ipsum porro quidem recusandae veniam repellendus earum?<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam neque doloremque minus praesentium beatae ratione. Sed, sequi aut? Excepturi enim impedit sequi accusamus ad numquam laudantium possimus laboriosam suscipit exercitationem!</p>
+		<div class="w-screen bg-gray-900">
+			<div class="px-4 pt-4">
+				<h2 id="o-mne" class="mt-6 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">O mně<img src="./assets/icons/waving_hand_3d_default.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
+				<p class="px-4 text-base text-slate-400 sm:px-7 2xl:px-10 md:text-xl xl:text-2xl max-w-6xl mx-auto">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem veritatis blanditiis quasi excepturi nobis quam accusantium dignissimos, quaerat minima voluptates esse molestias laudantium inventore temporibus reprehenderit magni. Facilis, id dolores? Sint suscipit id neque, accusantium quibusdam nihil nobis libero laboriosam reprehenderit alias nam soluta ipsam provident! Sunt quas, inventore dolor labore, illum atque ipsum porro quidem recusandae veniam repellendus earum?<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam neque doloremque minus praesentium beatae ratione. Sed, sequi aut? Excepturi enim impedit sequi accusamus ad numquam laudantium possimus laboriosam suscipit exercitationem!</p>
 			</div>
-			<div class="px-4 py-4 sm:px-20">
-				<h2 class="my-4 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Proč zrovna <span data-cursor="-pointer">Limit?</span><img src="./assets/icons/hourglass_not_done_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
-				<p class="px-4 text-base text-slate-400 sm:px-7 2xl:px-10 md:text-xl xl:text-2xl">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem veritatis blanditiis quasi excepturi nobis quam accusantium dignissimos, quaerat minima voluptates esse molestias laudantium inventore temporibus reprehenderit magni. Facilis, id dolores? Sint suscipit id neque, accusantium quibusdam nihil nobis libero laboriosam reprehenderit alias nam soluta ipsam provident! Sunt quas, inventore dolor labore, illum atque ipsum porro quidem recusandae veniam repellendus earum?</p>
+			<div class="px-4 pt-4">
+				<h2 id="prezdivka" class="mt-6 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Proč zrovna <span data-cursor="-pointer">Limit?</span><img src="./assets/icons/hourglass_not_done_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
+				<p class="px-4 text-base text-slate-400 sm:px-7 2xl:px-10 md:text-xl xl:text-2xl max-w-6xl mx-auto">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem veritatis blanditiis quasi excepturi nobis quam accusantium dignissimos, quaerat minima voluptates esse molestias laudantium inventore temporibus reprehenderit magni. Facilis, id dolores? Sint suscipit id neque, accusantium quibusdam nihil nobis libero laboriosam reprehenderit alias nam soluta ipsam provident! Sunt quas, inventore dolor labore, illum atque ipsum porro quidem recusandae veniam repellendus earum?</p>
 			</div>
-			<div class="px-4 py-4 sm:px-16 lg:px-40 2xl:px-48">
-				<h2 class="my-4 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Linktree<img src="./assets/icons/evergreen_tree_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
+			<div class="px-4 pt-4">
+				<h2 id="co-umim" class="mt-6 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Co umím?<img src="./assets/icons/laptop_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
+				<p class="px-4 text-base text-slate-400 sm:px-7 2xl:px-10 md:text-xl xl:text-2xl max-w-6xl mx-auto">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem veritatis blanditiis quasi excepturi nobis quam accusantium dignissimos, quaerat minima voluptates esse molestias laudantium inventore temporibus reprehenderit magni. Facilis, id dolores? Sint suscipit id neque, accusantium quibusdam nihil nobis libero laboriosam reprehenderit alias nam soluta ipsam provident! Sunt quas, inventore dolor labore, illum atque ipsum porro quidem recusandae veniam repellendus earum?</p>
+			</div>
+			<div class="mx-auto p-4 md:px-6 lg:px-16 xl:px-0 max-w-5xl">
+				<h2 id="linktree" class="mt-6 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Linktree<img src="./assets/icons/link_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
 				<div class="flex flex-col justify-evenly items-center flex-wrap gap-4 pb-10">
-					<a class="w-full h-fit" href="https://discord.gg/zJN32Fs4hE" target="_blank">
-						<div class="group flex flex-nowrap items-center | w-full h-full | border-2 rounded-xl border-gray-600 bg-gray-800 | transition ease-in-out delay-50 duration-500 | hover:bg-indigo-600 hover:border-transparent hover:-translate-y-1 hover:sm:scale-110 hover:scale-105">
+					<a id="dc_btn" class="w-full h-18 cursor-pointer">
+						<div class="group flex flex-nowrap items-center | w-full h-full | border-2 rounded-xl border-gray-600 bg-transparent | transition ease-in-out delay-50 duration-500 | hover:bg-indigo-600 hover:border-transparent hover:-translate-y-1 hover:lg:scale-110 hover:scale-105">
 							<div class="flex-1 flex flex-nowrap items-center p-4">
 								<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16" class=" h-auto w-10 | text-indigo-500 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-20 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500">
 									<path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
 								</svg>
-								<p class="text-3xl md:text-4xl tracking-wide font-bold group-hover:font-black | text-indigo-500 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-40 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500">Discord</p>
+								<p class="text-2xl md:text-3xl tracking-wide font-bold group-hover:font-black | text-indigo-100 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-40 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500">Discord</p>
 							</div>
 							<i data-feather="arrow-right" class="self-end | h-10 w-auto | stroke-2 stroke-indigo-500 group-hover:stroke-3 group-hover:stroke-white | my-auto mr-4 | group-hover:md:-translate-x-20 group-hover:2xl:-translate-x-64 | items-center | transition-all ease-in-out delay-50 duration-500"></i>
 						</div>
 					</a>
 					<a class="w-full h-18" href="https://github.com/Limit-sest" target="_blank">
-						<div class="group flex flex-nowrap items-center | w-full h-full | border-2 rounded-xl border-gray-600 | bg-gray-800 | transition ease-in-out delay-50 duration-500 | hover:bg-indigo-600 hover:border-transparent hover:-translate-y-1 hover:sm:scale-110 hover:scale-105">
+						<div class="group flex flex-nowrap items-center | w-full h-full | border-2 rounded-xl border-gray-600 | bg-transparent | transition ease-in-out delay-50 duration-500 | hover:bg-indigo-600 hover:border-transparent hover:-translate-y-1 hover:sm:scale-110 hover:scale-105">
 							<div class="flex-1 flex flex-nowrap items-center p-4">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class=" h-10 w-auto | text-indigo-500 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-20 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class=" h-auto w-10 | text-indigo-500 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-20 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500">
 									<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="currentColor" />
 								</svg>
   
-								<p class="text-3xl md:text-4xl tracking-wide font-bold group-hover:font-black | text-indigo-500 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-40 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500">GitHub</p>
+								<p class="text-2xl md:text-3xl tracking-wide font-bold group-hover:font-black | text-indigo-100 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-40 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500">GitHub</p>
 							</div>
 							<i data-feather="arrow-right" class="self-end | h-10 w-auto | stroke-2 stroke-indigo-500 group-hover:stroke-3 group-hover:stroke-white | my-auto mr-4 | group-hover:md:-translate-x-20 group-hover:2xl:-translate-x-64 | items-center | transition-all ease-in-out delay-50 duration-500"></i>
 						</div>
 					</a>
-					<a id="mail_btn" class="w-full h-fit" href="mailto:kontakt@limit6.eu">
-						<div class="group flex flex-nowrap items-center | w-full h-full | border-2 rounded-xl border-gray-600 | bg-gray-800 | transition ease-in-out delay-50 duration-500 | hover:bg-indigo-600 hover:border-transparent hover:-translate-y-1 hover:sm:scale-110 hover:scale-105">
+					<a id="mail_btn" class="w-full h-18" href="mailto:kontakt@limit6.eu" target="_blank">
+						<div class="group flex flex-nowrap items-center | w-full h-full | border-2 rounded-xl border-gray-600 | bg-transparent | transition ease-in-out delay-50 duration-500 | hover:bg-indigo-600 hover:border-transparent hover:-translate-y-1 hover:sm:scale-110 hover:scale-105">
 							<div class="flex-1 flex flex-nowrap items-center p-4">
-								<i data-feather="mail" class=" h-10 w-auto | text-indigo-500 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-20 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500"></i>
-								<p class="text-3xl md:text-4xl tracking-wide font-bold group-hover:font-black | text-indigo-500 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-40 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500">E-mail</p>
+								<i data-feather="mail" class=" h-auto w-10 | text-indigo-500 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-20 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500"></i>
+								<p class="text-2xl md:text-3xl tracking-wide font-bold group-hover:font-black | text-indigo-100 group-hover:text-white | my-auto ml-4 | group-hover:md:translate-x-40 group-hover:2xl:translate-x-64 group-hover:-skew-x-12 | items-center | transition-all ease-in-out delay-50 duration-500">E-mail</p>
 							</div>
 							<i data-feather="arrow-right" class="self-end | h-10 w-auto | stroke-2 stroke-indigo-500 group-hover:stroke-3 group-hover:stroke-white | my-auto mr-4 | group-hover:md:-translate-x-20 group-hover:2xl:-translate-x-64 | items-center | transition-all ease-in-out delay-50 duration-500"></i>
 						</div>
@@ -122,10 +135,23 @@
 				</div>
 			</div>
 		</div>
-		<footer class="w-screen bg-indigo-600 h-32 sm:h-64">
+		<footer class="w-screen overflow-hidden bg-indigo-600">
 			<img src="./assets/images/wave-haikei.svg" alt="" class="relative top-0 w-screen">
-			<p class="px-4 sm:px-7 2xl:px-10 | text-lg md:text-xl  | text-slate-300 | text-center justify-center">© <span data-cursor="-pointer">Limit</span> 2023</p>
-			<p class="px-4 sm:px-7 2xl:px-10 | text-lg md:text-xl  | text-slate-300 | text-center justify-center">Všechna práva vyhrazena.</p>
+			<div class="flex justify-center flex-nowrap | w-full pb-4 sm:pb-6 md:pb-8">
+				<div id="footer-text" class="w-80 flex-wrap">
+					<p class="px-8 sm:px-7 2xl:px-10 | text-lg md:text-xl  | text-white/60 | text-right ">© <span data-cursor="-pointer">Limit</span> 2023</p>
+					<p class="px-8 sm:px-7 2xl:px-10 | text-lg md:text-xl  | text-white/60 | text-right ">Všechna práva vyhrazena.</p>
+				</div>
+				<div class="min-h-full w-0 | border-white/60 border | relative"></div>
+				<div class="w-80 flex-col flex-nowrap">
+					<div class="w-full">
+						<a href="" class="px-8 2xl:px-10 | text-lg md:text-xl  | text-white/60 | text-left hover:text-white hover:underline">Feedback</a>
+					</div>
+					<div class="w-full">
+						<a href="" class="px-8 2xl:px-10 | text-lg md:text-xl  | text-white/60 | text-left hover:text-white hover:underline">Poděkování</a>
+					</div>				
+				</div>
+			</div>
 		</footer>
 
 
@@ -137,10 +163,7 @@
 			feather.replace()
 		</script>
 		<script>
-			var scroll = new SmoothScroll('a[href*="#"]',{
-				speed: '500',
-				easing: 'easeInOutQuart',
-			});
+			var scroll = new SmoothScroll('a[href*="#"]',{});
 		</script>
 	</body>
 </html>
