@@ -13,5 +13,10 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-touch')(),
+  ],
+  modules: {
+    shadows: ['responsive', 'hover', 'focus', 'hover-hover', 'hover-none'],
+  },
 }

@@ -3,6 +3,7 @@ var loadingTextArray = [
     "Jsem rád žes dorazil/a ❤️",
     "Mezitím se můžeš napít 🥤",
     "Doufám, že máš hezký den! 🙂",
+    "Vítej! 🙂",
     "Jak se máš? 🤔",
     "Zdar! 👋",
     "Ahoj! 👋"
