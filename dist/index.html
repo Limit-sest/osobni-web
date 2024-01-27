@@ -43,14 +43,14 @@
 		---
 		https://feathericons.com/
     -->
-		<div class="absolute bottom-0 left-0">
+		<!-- <div class="absolute bottom-0 left-0">
 			<p class="block text-white">none</p>
 			<p class="hidden sm:block text-white">sm</p>
 			<p class="hidden md:block text-white">md</p>
 			<p class="hidden lg:block text-white">lg</p>
 			<p class="hidden xl:block text-white">xl</p>
 			<p class="hidden 2xl:block text-white">2xl</p>
-		</div>
+		</div> -->
 		<div id="loader">
 			<h1 id="loading-text" class="mx-8 py-4 text-4xl font-black text-white sm:mx-16 sm:text-6xl 2xl:text-7xl">Načítá se...</h1>
 			<div class="loader-animation inline w-7 h-7 sm:w-10 sm:h-10 mt-5 sm:mt-10 mb-10 sm:mb-14"></div>
@@ -95,15 +95,16 @@
 		</div>
 		<div class="w-screen bg-indigo-600 rounded-t-full z-10">
 			<div class="w-screen bg-neutral-950 rounded-3xl z-20">
-				<div class="max-w-6xl mx-auto px-3">
-					<div class="px-4 pt-4">
-						<h2 id="o-mne" class="mt-6 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">O mně<img src="./assets/icons/waving_hand_3d_default.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
+				<div class="max-w-6xl mx-auto px-3 flex flex-col flex-nowrap gap-14 items-center">
+					<div></div>
+					<div class="px-4">
+						<h2 id="o-mne" class="text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">O mně<img src="./assets/icons/waving_hand_3d_default.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
 						<p class=" text-slate-400 md:text-xl xl:text-2xl w-full leading-loose">Baví mě vše, co se týká počítačů. Ať už to jsou weby, ui/ux design, python scripty, hry, nebo třeba jejich komponenty. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem veritatis blanditiis quasi excepturi nobis quam accusantium dignissimos, quaerat minima voluptates esse molestias laudantium inventore temporibus reprehenderit magni. Facilis, id dolores? Sint suscipit id neque, accusantium quibusdam nihil nobis libero laboriosam reprehenderit alias nam soluta ipsam provident! Sunt quas, inventore dolor labore, illum atque ipsum porro quidem recusandae veniam repellendus earum?<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam neque doloremque minus praesentium beatae ratione. Sed, sequi aut? Excepturi enim impedit sequi accusamus ad numquam laudantium possimus laboriosam suscipit exercitationem!</p>
 					</div>
-					<div class="px-4 pt-4">
-						<h2 id="projekty" class="mt-6 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Projekty<img src="./assets/icons/rocket_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
+					<div class="px-4">
+						<h2 id="projekty" class="text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Projekty<img src="./assets/icons/rocket_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
 						<div class="grid grid-cols-1 grid-flow-dense gap-2 my-3 | sm:grid-cols-2 sm:gap-3 | md:grid-cols-3  |  |">
-							<div class="border-white/10 border bg-zinc-900 rounded-lg min-w-[100px] min-h-[100px] overflow-hidden | flex flex-col justify-between flex-nowrap relative">
+							<div class="border-white/10 border bg-zinc-900 rounded-lg min-w-[100px] min-h-[100px] overflow-hidden | flex flex-col justify-between flex-nowrap relative gap-2">
 								<img src="https://i.imgur.com/5nkvOQB.jpeg" alt="" class="object-cover object-center max-h-40 w-full h-full rounded-b-lg">
 								<div class="mx-4">
 									<h3 class="text-white font-bold text-xl my-2">Zprávy ze ZŠ U Obory</h3>
@@ -111,7 +112,7 @@
 								</div>
 								<a href="https://www.instagram.com/zpravy.uobory/" target="_blank" class="h-8 min-w-[32px] max-w-fit m-4 mt-2 p-2 | border-indigo-500/80 border-2 rounded-lg | flex flex-nowrap items-center | text-zinc-300 stroke-zinc-300 font-bold text-sm | transition-all ease-in-out delay-50 duration-300 | hover:hover-hover:border-indigo-700 hover:hover-hover:bg-indigo-700 hover:hover-hover:scale-110"><p>Více info</p><i data-feather="arrow-up-right" class="h-6"></i></a>
 							</div>
-							<div class="border-white/10 border bg-zinc-900 rounded-lg min-w-[100px] min-h-[100px] overflow-hidden | flex flex-col justify-between flex-nowrap relative">
+							<div class="border-white/10 border bg-zinc-900 rounded-lg min-w-[100px] min-h-[100px] overflow-hidden | flex flex-col justify-between flex-nowrap relative gap-2">
 								<img src="https://i.imgur.com/5nkvOQB.jpeg" alt="" class="object-cover object-center max-h-40 w-full h-full rounded-b-lg">
 								<div class="mx-4">
 									<h3 class="text-white font-bold text-xl my-2">Nádherný Pejsek</h3>
@@ -128,12 +129,12 @@
 							<div class="border-gray-600/30 border rounded-lg min-w-[260px] min-h-[390px] "></div>
 						</div>
 					</div>
-					<div class="px-4 pt-4">
-						<h2 id="co-umim" class="mt-6 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Co umím?<img src="./assets/icons/laptop_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
+					<div class="px-4">
+						<h2 id="co-umim" class="text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Co umím?<img src="./assets/icons/laptop_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
 						<p class="text-slate-400 md:text-xl xl:text-2xl w-full leading-loose">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem veritatis blanditiis quasi excepturi nobis quam accusantium dignissimos, quaerat minima voluptates esse molestias laudantium inventore temporibus reprehenderit magni. Facilis, id dolores? Sint suscipit id neque, accusantium quibusdam nihil nobis libero laboriosam reprehenderit alias nam soluta ipsam provident! Sunt quas, inventore dolor labore, illum atque ipsum porro quidem recusandae veniam repellendus earum?</p>
 					</div>
-					<div class="mx-auto p-4 md:px-6 lg:px-16 xl:px-0 max-w-5xl">
-						<h2 id="linktree" class="mt-6 text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Linktree<img src="./assets/icons/link_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
+					<div class="px-4 md:px-6 lg:px-16 xl:px-0 w-full">
+						<h2 id="linktree" class="text-center text-5xl font-bold text-white sm:text-6xl 2xl:text-7xl">Linktree<img src="./assets/icons/link_3d.png" alt="" class="inline h-12 sm:h-15 2xl:h-18 mb-5 ml-3"></h2>
 						<div class="flex flex-col justify-evenly items-center flex-wrap gap-4 pb-10">
 							<div id="dc_btn" data-cursor="-pointer" class="w-full h-18 cursor-pointer">
 								<div class="group flex flex-nowrap items-center | w-full h-full | border-2 rounded-xl border-gray-600 bg-transparent | transition ease-in-out delay-50 duration-500 | hover:hover-hover:bg-indigo-600 hover:hover-hover:border-transparent hover:hover-hover:-translate-y-1 hover:hover-hover:lg:scale-110 hover:hover-hover:scale-105">
@@ -169,6 +170,7 @@
 							</div>
 						</div>
 					</div>
+					<div></div>
 				</div>
 			</div>
 		</div>
