@@ -7,26 +7,45 @@ var loadingTextArray = [
     "Jak se máš? 🤔",
     "Zdar! 👋",
     "Ahoj! 👋"
-];
+] 
 
+var loader = document.getElementById("loader") 
+var heroBg = document.getElementById("hero-bg")
 
 function getRandomLoadingText() {
-    var randomIndex = Math.floor(Math.random() * loadingTextArray.length);
-    return loadingTextArray[randomIndex];
+    var randomIndex = Math.floor(Math.random() * loadingTextArray.length) 
+    return loadingTextArray[randomIndex] 
 }
 
 function updateLoadingText() {
-    var loadingTextElement = document.getElementById('loading-text');
-    loadingTextElement.textContent = getRandomLoadingText();
+    var loadingTextElement = document.getElementById("loading-text") 
+    loadingTextElement.textContent = getRandomLoadingText() 
 }
-updateLoadingText();
+updateLoadingText() 
+
+let opacityToggle = true;
+
+function animateHeroBg() {
+    if (opacityToggle) {
+        heroBg.style.opacity = 1
+        console.log("1")
+    } else {
+        heroBg.style.opacity = 0.75
+        console.log("2")
+    }
+
+    opacityToggle = !opacityToggle
+}
 
 window.onload = function() {
-    setTimeout(() => {
-        var loader = document.getElementById('loader');
-        loader.classList.add('hide');
+    setTimeout(function() {
+        loader.classList.add("hide")
         setTimeout(function() {
-            loader.style.display = 'none';
-        }, 1000); // Z letsstudy.cz
-    }, 100);
-};
+            heroBg.style.opacity = 1
+            setTimeout(function() {
+                loader.style.display = "none"
+                setInterval(animateHeroBg, 5100)
+            }, 500)
+        }, 500)
+    }, 50)
+}
