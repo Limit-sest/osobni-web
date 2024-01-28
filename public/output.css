@@ -707,6 +707,10 @@ video {
   margin-top: 1.25rem;
 }
 
+.mb-auto {
+  margin-bottom: auto;
+}
+
 .block {
   display: block;
 }
@@ -905,6 +909,10 @@ video {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -935,6 +943,14 @@ video {
 
 .self-end {
   align-self: flex-end;
+}
+
+.justify-self-start {
+  justify-self: start;
+}
+
+.justify-self-end {
+  justify-self: end;
 }
 
 .overflow-hidden {
