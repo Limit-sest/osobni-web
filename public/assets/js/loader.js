@@ -28,10 +28,8 @@ let opacityToggle = true;
 function animateHeroBg() {
     if (opacityToggle) {
         heroBg.style.opacity = 1
-        console.log("1")
     } else {
         heroBg.style.opacity = 0.75
-        console.log("2")
     }
 
     opacityToggle = !opacityToggle

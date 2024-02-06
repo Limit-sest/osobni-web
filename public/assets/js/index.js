@@ -128,9 +128,6 @@ window.onload = function() {
 window.onscroll = function() {
     backToTopCheck()
     navItemsCheck()
-
-
-
     const target = document.getElementById('hero');
     var rate = window.scrollY*-0.3
 
