@@ -689,14 +689,6 @@ video {
   margin-top: 1.5rem;
 }
 
-.mt-3 {
-  margin-top: 0.75rem;
-}
-
-.ml-8 {
-  margin-left: 2rem;
-}
-
 .inline {
   display: inline;
 }
@@ -777,8 +769,8 @@ video {
   width: 2.5rem;
 }
 
-.w-32 {
-  width: 8rem;
+.w-12 {
+  width: 3rem;
 }
 
 .w-7 {
@@ -799,14 +791,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-16 {
-  width: 4rem;
-}
-
-.w-12 {
-  width: 3rem;
 }
 
 .min-w-\[100px\] {
@@ -961,6 +945,10 @@ video {
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .self-end {
@@ -1368,6 +1356,16 @@ video {
     color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
+  .hover\:hover-hover\:text-indigo-500:hover {
+    --tw-text-opacity: 1;
+    color: rgb(99 102 241 / var(--tw-text-opacity));
+  }
+
+  .hover\:hover-hover\:text-indigo-400:hover {
+    --tw-text-opacity: 1;
+    color: rgb(129 140 248 / var(--tw-text-opacity));
+  }
+
   .hover\:hover-hover\:underline:hover {
     text-decoration-line: underline;
   }
@@ -1521,6 +1519,11 @@ video {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 @media (hover: hover) {
@@ -1569,6 +1572,11 @@ video {
     font-size: 6rem;
     line-height: 1;
   }
+
+  .xl\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1536px) {
@@ -1579,11 +1587,6 @@ video {
   .\32xl\:px-10 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
-  }
-
-  .\32xl\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 
   .\32xl\:text-7xl {
