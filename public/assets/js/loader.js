@@ -36,14 +36,12 @@ function animateHeroBg() {
 }
 
 window.onload = function() {
+    loader.classList.add("hide")
     setTimeout(function() {
-        loader.classList.add("hide")
+        heroBg.style.opacity = 1
         setTimeout(function() {
-            heroBg.style.opacity = 1
-            setTimeout(function() {
-                loader.style.display = "none"
-                setInterval(animateHeroBg, 5100)
-            }, 500)
+            loader.style.display = "none"
+            setInterval(animateHeroBg, 5100)
         }, 500)
-    }, 50)
+    }, 500)
 }
