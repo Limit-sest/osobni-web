@@ -1,12 +1,11 @@
 var loadingTextArray = [
-    "Chceš s něčím pomoct? 🤝",
-    "Jsem rád žes dorazil/a ❤️",
-    "Mezitím se můžeš napít 🥤",
-    "Doufám, že máš hezký den! 🙂",
-    "Vítej! 🙂",
-    "Jak se máš? 🤔",
-    "Zdar! 👋",
-    "Ahoj! 👋"
+    "Chcete s něčím pomoct? 🤝",
+    "Mezitím se můžete napít 🥤",
+    "Přeji hezký den! 🙂",
+    "Vítejte! 🙂",
+    "Jak se máte? 🤔",
+    "Dobrý den! 👋",
+    "Zdravím! 👋"
 ] 
 
 var loader = document.getElementById("loader") 
