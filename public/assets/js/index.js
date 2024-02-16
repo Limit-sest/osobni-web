@@ -15,8 +15,7 @@ if (window.matchMedia('(pointer:fine)').matches) {
     });
 }
 
-//Kopírování mailu
-document.getElementById("mail_btn").addEventListener("click", function() {
+function mailCopy () {
     const text = "kontakt@limit6.eu";
     const alert = document.getElementById('alert');
 
@@ -34,10 +33,9 @@ document.getElementById("mail_btn").addEventListener("click", function() {
         alert.classList.remove('opacity-100', 'translate-y-0');
         alert.classList.add('opacity-0', 'translate-y-full');
     }, 3000);
+}
 
-});
-//Kopírování discordu
-document.getElementById("dc_btn").addEventListener("click", function() {
+function discordCopy () {
     const text = "@limit6";
     const alert = document.getElementById('alert-dc');
 
@@ -55,8 +53,7 @@ document.getElementById("dc_btn").addEventListener("click", function() {
         alert.classList.remove('opacity-100', 'translate-y-0');
         alert.classList.add('opacity-0', 'translate-y-full');
     }, 3000);
-
-});
+}
 
 const backToTop = document.getElementById("back-to-top")
 const navItems = document.querySelectorAll('.nav-item')
