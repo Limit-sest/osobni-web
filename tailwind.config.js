@@ -5,12 +5,8 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        '15': '3.75rem',
-        '18': '70px',
+        '18': '70px'
       },
-      strokeWidth: {
-        '3': '3',
-      }
     },
   },
   plugins: [
