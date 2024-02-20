@@ -34,13 +34,22 @@ function animateHeroBg() {
     opacityToggle = !opacityToggle
 }
 
-window.onload = function() {
+function loadImages() {
+    var lazyloadImages = document.querySelectorAll("[data-src]");
+  
+    lazyloadImages.forEach(function(image) {
+      image.src = image.dataset.src;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
     loader.classList.add("hide")
     setTimeout(function() {
         heroBg.style.opacity = 1
         setTimeout(function() {
             loader.style.display = "none"
+            loadImages()
             setInterval(animateHeroBg, 5100)
         }, 500)
     }, 500)
-}
+})
