@@ -8,13 +8,6 @@ const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
       : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
   };
 
-//Vytvoření mouse followeru
-if (window.matchMedia('(pointer:fine)').matches) {
-    const cursor = new MouseFollower({
-        speed: 0.5
-    });
-}
-
 function mailCopy () {
     const text = "kontakt@limit6.eu";
     const alert = document.getElementById('alert');
