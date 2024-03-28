@@ -125,3 +125,11 @@ window.onscroll = function() {
 
 
 };
+
+var projectCards = document.querySelectorAll("[data-cardhref]");
+projectCards.forEach(function(card){
+    console.log(card.dataset.cardhref)
+    card.addEventListener("click", function(){
+        window.open(card.dataset.cardhref, "_blank");
+    })
+})
