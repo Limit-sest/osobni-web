@@ -122,13 +122,10 @@ window.onscroll = function() {
     var rate = window.scrollY*-0.3
 
     target.style.transform = "translate3d(0px,"+rate+"px, 0px)"
-
-
 };
 
 var projectCards = document.querySelectorAll("[data-cardhref]");
 projectCards.forEach(function(card){
-    console.log(card.dataset.cardhref)
     card.addEventListener("click", function(){
         window.open(card.dataset.cardhref, "_blank");
     })
