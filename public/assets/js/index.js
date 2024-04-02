@@ -81,16 +81,8 @@ function backToTopCheck(){
 function navItemsCheck(){
     if (elementIsVisibleInViewport(footerText) == true) {
         for (const navItem of navItems) {
-            navItem.classList.remove('w-10');
-            navItem.classList.remove('m-2');
-            navItem.classList.remove('p-1');
-            navItem.classList.remove('opacity-100');
-            navItem.classList.remove('h-10');
-            navItem.classList.add('h-0');
-            navItem.classList.add('w-0');
-            navItem.classList.add('p-0');
-            navItem.classList.add('m-0');
-            navItem.classList.add('opacity-0');
+            navItem.classList.remove('w-10', 'opacity-100','m-2','p-1','h-10');
+            navItem.classList.add('h-0','w-0','p-0', 'm-0', 'opacity-0');
         }
     }
     if (elementIsVisibleInViewport(footerText) == false) {
@@ -100,11 +92,8 @@ function navItemsCheck(){
             navItem.classList.remove('m-0');
             navItem.classList.remove('opacity-0');
             navItem.classList.remove('h-0');
-            navItem.classList.add('h-10');
-            navItem.classList.add('w-10');
-            navItem.classList.add('m-2');
-            navItem.classList.add('p-1');
-            navItem.classList.add('opacity-100');
+            navItem.classList.add('h-10','w-10','m-2','p-1','opacity-100');
+
         }
     }
 }
