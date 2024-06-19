@@ -1,10 +1,10 @@
 var loadingTextArray = [
-    "Chcete s něčím pomoct? 🤝",
-    "Mezitím se můžete napít 🥤",
+    "Chceš s něčím pomoct? 🤝",
+    "Mezitím se můžeš napít 🥤",
     "Přeji hezký den! 🙂",
-    "Vítejte! 🙂",
-    "Jak se máte? 🤔",
-    "Dobrý den! 👋",
+    "Vítej! 🙂",
+    "Jak se máš? 🤔",
+    "Ahoj! 👋",
     "Zdravím! 👋"
 ] 
 
